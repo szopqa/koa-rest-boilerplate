@@ -15,6 +15,9 @@ const registerEndpoint = router => (resourceEndpoint) => {
   router[method](path, handler);
 };
 
+/**
+ * Registering all endpoints and their handlers
+ */
 const setupRest = (service) => {
   const registeredRouters = fs.readdirSync(REST_MODULES_DIR).map((restFile) => {
     const { resourceName, prefix, resourceEndpoints } = require(`${REST_MODULES_DIR}/${restFile}`);

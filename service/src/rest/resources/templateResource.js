@@ -8,16 +8,14 @@ const getSingle = (ctx, next) => {
   return next();
 };
 
-const getSingleCustom = (ctx, next) => {
-  ctx.body = 'getSingleCustom handler';
-  return next();
-};
-
 const deleteSingle = (ctx, next) => {
   ctx.body = 'deleteSingle handler';
   return next();
 };
 
+/**
+ * Module interface for every future resource
+ */
 module.exports = {
   resourceName: 'Template Resource',
   prefix: '/templateResource',
@@ -27,9 +25,6 @@ module.exports = {
     },
     {
       method: 'get', path: '/:id', handler: getSingle,
-    },
-    {
-      method: 'get', path: '/:id', handler: getSingleCustom,
     },
     {
       method: 'delete', path: '/:id', handler: deleteSingle,
